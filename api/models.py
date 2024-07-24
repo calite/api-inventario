@@ -1,16 +1,17 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser, Group, Permission
+from django.contrib.auth.models import User
 
 # Modelo de Usuario con roles específicos
-class User(AbstractUser):
-    ROLE_CHOICES = (
-        ('admin', 'Administrador'),
-        ('employee', 'Empleado'),
-        ('client', 'Cliente'),
-    )
-    role = models.CharField(max_length=10, choices=ROLE_CHOICES, default='client')
-    groups = models.ManyToManyField(Group, related_name='custom_user_set', blank=True)
-    user_permissions = models.ManyToManyField(Permission, related_name='custom_user_set', blank=True)
+# class User(AbstractUser):
+#     ROLE_CHOICES = (
+#         ('admin', 'Administrador'),
+#         ('employee', 'Empleado'),
+#         ('client', 'Cliente'),
+#     )
+#     role = models.CharField(max_length=10, choices=ROLE_CHOICES, default='client')
+#     groups = models.ManyToManyField(Group, related_name='custom_user_set', blank=True)
+#     user_permissions = models.ManyToManyField(Permission, related_name='custom_user_set', blank=True)
 
 # Modelo para los tipos de productos
 class ProductType(models.Model):

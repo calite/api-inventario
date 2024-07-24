@@ -18,9 +18,14 @@ from django.contrib import admin
 from django.urls import include, path
 from rest_framework.documentation import include_docs_urls
 
+from api import views
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/', include('api.urls')),
-    path('docs/v1/', include_docs_urls(title='API  Documentation'))
+    path('docs/v1/', include_docs_urls(title='API  Documentation')),
+    path('login', views.login),
+    path('register', views.register),
+    path('profile', views.profile),
 ]

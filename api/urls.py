@@ -1,17 +1,18 @@
 from django.urls import path, include
 from rest_framework import routers
 from .views import (
-    UserList, UserDetail, ProductTypeList, ProductTypeDetail,
+    UserDetail, ProductTypeList, ProductTypeDetail,
     ProductList, ProductDetail, AccessoryList, AccessoryDetail,
     ReservationList, ReservationDetail, CheckoutList, CheckoutDetail,
     IncidentList, IncidentDetail
 )
+from api import views
 
 router = routers.DefaultRouter()
 
 urlpatterns = [
     path('',include(router.urls)),
-    path('users/', UserList.as_view(), name='user-list'),
+    # path('users/', UserList.as_view(), name='user-list'),
     path('users/<int:pk>/', UserDetail.as_view(), name='user-detail'),
     path('product-types/', ProductTypeList.as_view(), name='producttype-list'),
     path('product-types/<int:pk>/', ProductTypeDetail.as_view(), name='producttype-detail'),
